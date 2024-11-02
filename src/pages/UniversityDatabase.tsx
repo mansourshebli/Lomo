@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Filter, ChevronLeft, ChevronRight, MapPin, Users, DollarSign, GraduationCap, Percent } from 'lucide-react';
+import { Search, Filter, ChevronLeft, ChevronRight, MapPin, Award, DollarSign, GraduationCap, Percent } from 'lucide-react';
 import { mockUniversities } from '../data/mockUniversities';
 
 interface Location {
@@ -17,7 +17,7 @@ interface University {
   acceptance_rate: string;
   popular_majors: string[];
   tuition: string;
-  student_population: string;
+  us_news_rank: string;
   location: Location;
   web_pages?: string[]; // Make web_pages optional
 }
@@ -102,12 +102,17 @@ const UniversityDatabase: React.FC = () => {
       {selectedUniversity && (
         <UniversityModal university={selectedUniversity} onClose={() => setSelectedUniversity(null)} />
       )}
-      <div className="text-center mt-8 text-gray-500 dark:text-gray-400">
-        Powered by US News
-      </div>
+      <div className="text-center mt-8 text-gray-500 dark:text-gray-400 flex items-center justify-center space-x-2">
+        <span>Powered by</span>
+        <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/U.S._News_%26_World_Report_logo.svg/2560px-U.S._News_%26_World_Report_logo.svg.png"
+        alt="US News logo"
+        className="h-6"
+      />
+</div>
+
     </div>
   );
-  
 };
 
 const UniversityCard: React.FC<{ university: University; onClick: () => void }> = ({ university, onClick }) => (
@@ -129,8 +134,8 @@ const UniversityCard: React.FC<{ university: University; onClick: () => void }> 
         <span>{`${university.location.city}, ${university.location.state}`}</span>
       </div>
       <div className="flex items-center">
-        <Users size={16} className="mr-2" />
-        <span>{university.student_population} students</span>
+        <Award size={16} className="mr-2" />
+        <span>{university.us_news_rank} National Rank</span>
       </div>
       <div className="flex items-center">
         <Percent size={16} className="mr-2" />
@@ -205,9 +210,9 @@ const UniversityModal: React.FC<{ university: University; onClose: () => void }>
               value={university.tuition}
             />
             <StatsCard
-              icon={<Users size={20} />}
-              label="Student Population"
-              value={university.student_population}
+              icon={<Award size={20} />}
+              label="National Rank"
+              value={university.us_news_rank}
             />
           </div>
         </div>
@@ -219,9 +224,12 @@ const UniversityModal: React.FC<{ university: University; onClose: () => void }>
             href={university.web_pages[0]}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+            className="inline-flex items-center bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
           >
             Visit Website
+            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </a>
         </div>
       )}
@@ -230,66 +238,41 @@ const UniversityModal: React.FC<{ university: University; onClose: () => void }>
 );
 
 const StatsCard: React.FC<{ icon: React.ReactNode; label: string; value: string }> = ({ icon, label, value }) => (
-  <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-    <div className="flex items-center space-x-3">
-      <div className="text-blue-600 dark:text-blue-400">{icon}</div>
-      <div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">{label}</div>
-        <div className="font-semibold dark:text-white">{value}</div>
-      </div>
+  <div className="flex items-center bg-gray-100 dark:bg-gray-700 p-4 rounded-lg">
+    {icon}
+    <div className="ml-4">
+      <h4 className="text-sm font-medium dark:text-white">{label}</h4>
+      <p className="text-lg font-semibold dark:text-gray-300">{value}</p>
     </div>
   </div>
 );
 
-const Pagination: React.FC<{
-  universitiesPerPage: number;
-  totalUniversities: number;
-  paginate: (pageNumber: number) => void;
-  currentPage: number;
-}> = ({ universitiesPerPage, totalUniversities, paginate, currentPage }) => {
+const Pagination: React.FC<{ universitiesPerPage: number; totalUniversities: number; paginate: (pageNumber: number) => void; currentPage: number }> = ({
+  universitiesPerPage,
+  totalUniversities,
+  paginate,
+  currentPage,
+}) => {
   const pageNumbers = [];
-
   for (let i = 1; i <= Math.ceil(totalUniversities / universitiesPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
-    <nav className="mt-8 flex justify-center">
-      <ul className="flex space-x-2">
-        {currentPage > 1 && (
-          <li>
-            <button 
-              onClick={() => paginate(currentPage - 1)}
-              className="px-3 py-1 rounded-md bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-            >
-              <ChevronLeft size={20} />
-            </button>
-          </li>
-        )}
+    <nav className="flex justify-center mt-6">
+      <ul className="flex space-x-1">
         {pageNumbers.map(number => (
           <li key={number}>
             <button
               onClick={() => paginate(number)}
-              className={`px-3 py-1 rounded-md transition-colors ${
-                currentPage === number 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600'
-              }`}
+              className={`px-4 py-2 rounded-lg transition duration-300 ${
+                number === currentPage ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-600'
+              } hover:bg-blue-500 hover:text-white`}
             >
               {number}
             </button>
           </li>
         ))}
-        {currentPage < pageNumbers.length && (
-          <li>
-            <button 
-              onClick={() => paginate(currentPage + 1)}
-              className="px-3 py-1 rounded-md bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
-            >
-              <ChevronRight size={20} />
-            </button>
-          </li>
-        )}
       </ul>
     </nav>
   );
