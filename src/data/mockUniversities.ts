@@ -62,7 +62,7 @@ export const mockUniversities = [
   {
     id: 6,
     name: "Columbia University",
-    logo: "https://png.pngtree.com/png-clipart/20220530/original/pngtree-columbia-university-png-image_7775958.png",
+    logo: "https://uwm.edu/r2d2/wp-content/uploads/sites/438/2022/03/columbia-university-logo-noback.png",
     description: "Columbia University is a private Ivy League research university in New York City.",
     sat_average: "1450-1560",
     acceptance_rate: "5.4%",
@@ -86,7 +86,7 @@ export const mockUniversities = [
   {
     id: 8,
     name: "University of Pennsylvania",
-    logo: "https://banner2.cleanpng.com/20180622/rak/kisspng-university-of-pennsylvania-college-student-graduat-5b2c918ccf62c4.4154677215296475008495.jpg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/UPenn_shield_with_banner.svg/2370px-UPenn_shield_with_banner.svg.png",
     description: "The University of Pennsylvania is a private Ivy League research university in Philadelphia.",
     sat_average: "1460-1550",
     acceptance_rate: "7.7%",
@@ -98,7 +98,7 @@ export const mockUniversities = [
   {
     id: 9,
     name: "Northwestern University",
-    logo: "https://banner2.cleanpng.com/20180815/afk/53878c7c4091a0921c56f3ac10af1923.webp",
+    logo: "https://seeklogo.com/images/N/northwestern-university-logo-FEA158D1A3-seeklogo.com.png",
     description: "Northwestern University is a private research university in Evanston, Illinois.",
     sat_average: "1430-1550",
     acceptance_rate: "9.1%",
@@ -134,7 +134,7 @@ export const mockUniversities = [
   {
     id: 12,
     name: "UCLA",
-    logo: "https://image.pngaaa.com/191/3813191-middle.png",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/The_University_of_California_UCLA.svg/2048px-The_University_of_California_UCLA.svg.png",
     description: "The University of California, Los Angeles is a public land-grant research university in Los Angeles.",
     sat_average: "1290-1520",
     acceptance_rate: "12.3%",
@@ -142,7 +142,151 @@ export const mockUniversities = [
     tuition: "$43,022",
     student_population: "44,947",
     location: { city: "Los Angeles", state: "California", country: "United States" }
+  },
+  {
+    id: 13,
+    name: "University of Virginia",
+    logo: "https://seeklogo.com/images/U/university-of-virginia-logo-C4D6C5756F-seeklogo.com.png",
+    description: "The University of Virginia is a public research university in Charlottesville, Virginia.",
+    sat_average: "1300-1500",
+    acceptance_rate: "23.9%",
+    popular_majors: ["Business", "Economics", "Political Science"],
+    tuition: "$51,400",
+    student_population: "24,639",
+    location: { city: "Charlottesville", state: "Virginia", country: "United States" }
+    
+  },
+  {
+    id: 14,
+    name: "Pennsylvania State University",
+    logo: "https://cdn.freelogovectors.net/wp-content/uploads/2023/06/penn-state_logo-freelogovectors.net_.png",
+    description: "Pennsylvania State University (Penn State) is a public research university located in University Park, Pennsylvania.",
+    sat_average: "1220-1400",
+    acceptance_rate: "54%",
+    popular_majors: ["Business", "Engineering", "Communications","Life Sciences"],
+    tuition: "$32,223",
+    student_population: "42,223",
+    location: { city: "University Park", state: "Pennsylvania", country: "United States" }
+    
+  },
+  {
+    id: 15,
+    name: "Brown University",
+    logo: "https://1000logos.net/wp-content/uploads/2022/05/Brown-University-Logo.png",
+    description: "Brown University is a private Ivy League research university in Providence, Rhode Island.",
+    sat_average: "1440-1570",
+    acceptance_rate: "6.9%",
+    popular_majors: ["Computer Science", "Economics", "Political Science"],
+    tuition: "$62,304",
+    student_population: "10,257",
+    location: { city: "Providence", state: "Rhode Island", country: "United States" }
+  },
+  {
+    id: 16,
+    name: "Dartmouth College",
+    logo: "https://logolook.net/wp-content/uploads/2024/04/Dartmouth-College-Logo.png",
+    description: "Dartmouth College is a private Ivy League research university in Hanover, New Hampshire.",
+    sat_average: "1440-1560",
+    acceptance_rate: "6.2%",
+    popular_majors: ["Economics", "Government", "Engineering"],
+    tuition: "$61,378",
+    student_population: "6,761",
+    location: { city: "Hanover", state: "New Hampshire", country: "United States" }
+  },
+  {
+    id: 17,
+    name: "Cornell University",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/4/42/Cornell_University_Logo.png",
+    description: "Cornell University is a private Ivy League research university in Ithaca, New York.",
+    sat_average: "1420-1540",
+    acceptance_rate: "10.6%",
+    popular_majors: ["Biology", "Computer Science", "Engineering"],
+    tuition: "$61,015",
+    student_population: "25,582",
+    location: { city: "Ithaca", state: "New York", country: "United States" }
+  },
+  {
+    id: 18,
+    name: "California Institute of Technology (Caltech)",
+    logo: "https://i.pinimg.com/originals/f0/94/a6/f094a64b5caed3fe91965937deb64374.png",
+    description: "Caltech is a private research university in Pasadena, California.",
+    sat_average: "1530-1570",
+    acceptance_rate: "6.7%",
+    popular_majors: ["Engineering", "Computer Science", "Physics"],
+    tuition: "$58,680",
+    student_population: "2,397",
+    location: { city: "Pasadena", state: "California", country: "United States" }
+  },
+  {
+    id: 19,
+    name: "University of Chicago",
+    logo: "https://seeklogo.com/images/U/university-of-chicago-logo-0F38E68A5B-seeklogo.com.png",
+    description: "The University of Chicago is a private research university in Chicago, Illinois.",
+    sat_average: "1500-1570",
+    acceptance_rate: "6.2%",
+    popular_majors: ["Economics", "Political Science", "Biology"],
+    tuition: "$62,241",
+    student_population: "18,452",
+    location: { city: "Chicago", state: "Illinois", country: "United States" }
+  },
+  {
+    id: 20,
+    name: "University of Southern California (USC)",
+    logo: "https://loghi-famosi.com/wp-content/uploads/2021/11/USC-Logo.png",
+    description: "USC is a private research university in Los Angeles, California.",
+    sat_average: "1360-1530",
+    acceptance_rate: "12%",
+    popular_majors: ["Business", "Film", "Engineering"],
+    tuition: "$63,468",
+    student_population: "48,500",
+    location: { city: "Los Angeles", state: "California", country: "United States" }
+  },
+  {
+    id: 21,
+    name: "New York University (NYU)",
+    logo: "https://logos-world.net/wp-content/uploads/2021/09/NYU-Logo.png",
+    description: "New York University is a private research university in New York City.",
+    sat_average: "1350-1530",
+    acceptance_rate: "12.8%",
+    popular_majors: ["Business", "Film", "Economics"],
+    tuition: "$58,168",
+    student_population: "54,405",
+    location: { city: "New York", state: "New York", country: "United States" }
+  },
+  {
+    id: 22,
+    name: "Georgetown University",
+    logo: "https://seeklogo.com/images/G/georgetown-university-logo-7CC01223FE-seeklogo.com.png",
+    description: "Georgetown University is a private research university in Washington, D.C.",
+    sat_average: "1380-1550",
+    acceptance_rate: "15%",
+    popular_majors: ["Political Science", "International Relations", "Business"],
+    tuition: "$60,835",
+    student_population: "19,005",
+    location: { city: "Washington", state: "D.C.", country: "United States" }
+  },
+  {
+    id: 23,
+    name: "University of Notre Dame",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/University_of_Notre_Dame_seal_%282%29.svg/640px-University_of_Notre_Dame_seal_%282%29.svg.png",
+    description: "The University of Notre Dame is a private research university in Notre Dame, Indiana.",
+    sat_average: "1400-1550",
+    acceptance_rate: "15.8%",
+    popular_majors: ["Business", "Engineering", "Political Science"],
+    tuition: "$60,301",
+    student_population: "12,681",
+    location: { city: "Notre Dame", state: "Indiana", country: "United States" }
+  },
+  {
+    id: 24,
+    name: "Rice University",
+    logo: "https://resources.finalsite.net/images/f_auto,q_auto,t_image_size_2/v1661239749/jiseduorg/oxdwhrnroai8di6bovkd/Rice1.png",
+    description: "Rice University is a private research university in Houston, Texas.",
+    sat_average: "1460-1570",
+    acceptance_rate: "11%",
+    popular_majors: ["Engineering", "Biology", "Computer Science"],
+    tuition: "$54,100",
+    student_population: "8,076",
+    location: { city: "Houston", state: "Texas", country: "United States" }
   }
 ];
-
-// Add more universities here...
