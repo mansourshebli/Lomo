@@ -102,8 +102,12 @@ const UniversityDatabase: React.FC = () => {
       {selectedUniversity && (
         <UniversityModal university={selectedUniversity} onClose={() => setSelectedUniversity(null)} />
       )}
+      <div className="text-center mt-8 text-gray-500 dark:text-gray-400">
+        Powered by US News
+      </div>
     </div>
   );
+  
 };
 
 const UniversityCard: React.FC<{ university: University; onClick: () => void }> = ({ university, onClick }) => (
