@@ -9,7 +9,7 @@ export const mockUniversities = [
     popular_majors: ["Computer Science", "Economics", "Political Science"],
     tuition: "$54,768",
     student_population: "31,566",
-    location: { city: "Cambridge", state: "Massachusetts", country: "United States" }
+    location: { city: "Cambridge", state: "Massachusetts", country: "United States" },
   },
   {
     id: 2,

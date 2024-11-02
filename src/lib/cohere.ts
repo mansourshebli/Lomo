@@ -19,9 +19,16 @@ export const getEssayFeedback = async (essay: string) => {
 
 export const getCounselorResponse = async (message: string) => {
   const response = await cohereClient.chat({
-    message: `${message}\n\nFormat your response as plain text. For emphasis, wrap important text in <strong></strong> tags. For bullet points, start lines with • (bullet point symbol).`,
+    message: `${message}
+
+    Format your response as plain text. For emphasis, wrap important text in <strong></strong> tags and use bullet points starting with • for any lists or suggestions. When responding to short or informal questions, such as "Hi," reply briefly, e.g., "Hi! I'm here to help you with your college applications." Keep greetings concise and friendly.
+    
+    For longer or structured responses, use separate paragraphs with clear spacing between each one. Each section (Overview, Strengths, Areas for Improvement, etc.) should have its own paragraph to enhance readability. 
+    
+    If a question involves counseling or college advice, provide guidance in a structured, easy-to-read format. Ensure readability by spacing out paragraphs and keeping each section focused and concise.
+    `,
     model: "command-r-08-2024",
-    preamble: "You are an AI college counselor for Lomo, a platform that helps students with their college applications. Provide expert guidance on college selection, application strategy, and admissions requirements. Be supportive and informative while maintaining a professional tone. Format your response as plain text with HTML strong tags for emphasis and bullet points starting with •"
+    preamble: "You are an AI college counselor for Lomo, a platform that helps students with their college applications. Provide expert guidance on college selection, application strategy, and admissions requirements. Be supportive and informative while maintaining a professional tone. Format your response as plain text with bullet points, bold text and organzied structure and spacing."
   });
 
   return response.text

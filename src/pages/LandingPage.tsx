@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { PenTool, Lightbulb, MessageCircle, Database } from 'lucide-react';
+import { RiDiscordFill } from 'react-icons/ri';
 import { mockUniversities } from '../data/mockUniversities';
 
 const LandingPage: React.FC = () => {
@@ -67,6 +68,17 @@ const LandingPage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Ready to Elevate Your College Application?</h2>
           <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">Join thousands of students who have found success with Lomo.</p>
+          
+          {/* Join Discord Button */}
+          <a 
+            href="https://discord.gg/NRJrJQWB7F" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full font-semibold text-lg shadow-md hover:bg-blue-700 transition-colors"
+          >
+            <RiDiscordFill size={24} className="mr-2" />
+            Join Discord Server
+          </a>
         </div>
       </section>
     </div>
