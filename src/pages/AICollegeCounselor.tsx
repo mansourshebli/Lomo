@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { MessageCircle, Send, User, Sparkles } from 'lucide-react'
+import { MessageCircle, Send, User, Sparkles, Trash2 } from 'lucide-react'
 import { getCounselorResponse } from '../lib/cohere'
 
 interface Message {
@@ -36,6 +36,17 @@ const AICollegeCounselor: React.FC = () => {
 
   useEffect(scrollToBottom, [messages])
 
+  const formatMessageText = (text: string) => {
+    // Format text for bullet points and line breaks
+    return text
+      .split('\n')
+      .map(line => line.startsWith('- ') ? `<li>${line.slice(2)}</li>` : `<p>${line}</p>`)
+      .join('')
+      .replace(/<\/p><p>/g, '<br/>') // Ensure line breaks for new paragraphs
+      .replace(/<p>- <\/p>/g, '<ul>') // Add <ul> around bullet points
+      .replace(/<\/p>/g, '</p></ul>') // Close <ul> tag
+  }
+
   const handleSend = async () => {
     if (input.trim() && !isTyping) {
       const userMessage: Message = { id: Date.now().toString(), text: input, sender: 'user' }
@@ -47,7 +58,7 @@ const AICollegeCounselor: React.FC = () => {
         const response = await getCounselorResponse(input)
         const aiMessage: Message = {
           id: (Date.now() + 1).toString(),
-          text: response,
+          text: formatMessageText(response),
           sender: 'ai'
         }
         setMessages(prev => [...prev, aiMessage])
@@ -63,6 +74,13 @@ const AICollegeCounselor: React.FC = () => {
         setIsTyping(false)
       }
     }
+  }
+
+  const handleClearChat = () => {
+    setMessages([
+      { id: '1', text: "Hello! I'm your AI College Counselor. How can I assist you with your college application process today?", sender: 'ai' }
+    ])
+    localStorage.removeItem('chatHistory')
   }
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -83,6 +101,9 @@ const AICollegeCounselor: React.FC = () => {
             <h1 className="text-2xl font-bold text-white">AI College Counselor</h1>
             <p className="text-blue-100">Your 24/7 college application guide</p>
           </div>
+          <button onClick={handleClearChat} className="ml-auto text-white bg-red-500 hover:bg-red-600 p-2 rounded-lg">
+            <Trash2 size={20} />
+          </button>
         </div>
         
         <div className="chat-container rounded-b-2xl p-6 h-[60vh] flex flex-col">
