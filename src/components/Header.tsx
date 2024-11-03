@@ -31,7 +31,9 @@ const Header: React.FC = () => {
           <span className={`text-2xl font-bold ${isSticky ? 'text-blue-600 dark:text-white' : 'text-white'}`}>Lomo</span>
         </Link>
         <nav className="hidden md:flex space-x-4">
+          <Link to="/deadline-calendar" className={`hover:text-blue-200 ${isSticky ? 'text-gray-800 dark:text-white' : 'text-white'}`}>Calendar</Link>
           <Link to="/essay-assistant" className={`hover:text-blue-200 ${isSticky ? 'text-gray-800 dark:text-white' : 'text-white'}`}>Essay Assistant</Link>
+          <Link to="/recommendation-letters" className={`hover:text-blue-200 ${isSticky ? 'text-gray-800 dark:text-white' : 'text-white'}`}>Recommendations</Link>
           <Link to="/extracurricular-recommendations" className={`hover:text-blue-200 ${isSticky ? 'text-gray-800 dark:text-white' : 'text-white'}`}>Extracurriculars</Link>
           <Link to="/ai-college-counselor" className={`hover:text-blue-200 ${isSticky ? 'text-gray-800 dark:text-white' : 'text-white'}`}>AI Counselor</Link>
           <Link to="/university-database" className={`hover:text-blue-200 ${isSticky ? 'text-gray-800 dark:text-white' : 'text-white'}`}>Universities</Link>
