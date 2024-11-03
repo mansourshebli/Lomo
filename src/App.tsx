@@ -6,6 +6,7 @@ import EssayAssistant from './pages/EssayAssistant';
 import ExtracurricularRecommendations from './pages/ExtracurricularRecommendations';
 import AICollegeCounselor from './pages/AICollegeCounselor';
 import UniversityDatabase from './pages/UniversityDatabase';
+import { Analytics } from '@vercel/analytics/react';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           </Routes>
         </main>
       </div>
+      <Analytics/>
     </Router>
   );
 }
