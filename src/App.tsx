@@ -6,6 +6,10 @@ import EssayAssistant from './pages/EssayAssistant';
 import ExtracurricularRecommendations from './pages/ExtracurricularRecommendations';
 import AICollegeCounselor from './pages/AICollegeCounselor';
 import UniversityDatabase from './pages/UniversityDatabase';
+import RecommendationLetters from './pages/RecommendationLetters.tsx';
+import DeadlineCalendar from './pages/DeadlineCalendar.tsx';
+import { Analytics } from '@vercel/analytics/react';
+
 
 function App() {
   return (
@@ -19,11 +23,18 @@ function App() {
             <Route path="/extracurricular-recommendations" element={<ExtracurricularRecommendations />} />
             <Route path="/ai-college-counselor" element={<AICollegeCounselor />} />
             <Route path="/university-database" element={<UniversityDatabase />} />
+            <Route path="/recommendation-letters" element={<RecommendationLetters />} />
+            <Route path="/deadline-calendar" element={<DeadlineCalendar />} />
           </Routes>
         </main>
       </div>
+      <Analytics/>
     </Router>
   );
 }
 
 export default App;
+
+
+
+

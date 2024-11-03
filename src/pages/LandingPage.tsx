@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { PenTool, Lightbulb, MessageCircle, Database } from 'lucide-react';
+import { PenTool, Lightbulb, MessageCircle, Database, Calendar, FileText } from 'lucide-react';
+import { RiDiscordFill } from 'react-icons/ri';
 import { mockUniversities } from '../data/mockUniversities';
 
 const LandingPage: React.FC = () => {
@@ -10,7 +11,7 @@ const LandingPage: React.FC = () => {
       <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 dark:from-gray-800 dark:via-gray-900 dark:to-black text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6 leading-tight">Ace Your College Application <br/>with Lomo</h1>
-          <p className="text-xl mb-12 text-blue-100">The Ultimate College Application Assistant</p>
+          <p className="text-xl mb-12 text-blue-100">The Ultimate College Application Assistant for students</p>
           
           {/* University Logo Marquee */}
           <div className="relative w-full overflow-hidden py-12 marquee-container">
@@ -33,12 +34,24 @@ const LandingPage: React.FC = () => {
       <section id="features" className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">Our Powerful Tools</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={<Calendar size={48} />}
+              title="Application Calendar"
+              description="Track all your deadlines, essays, and application milestones in one beautiful calendar."
+              link="/deadline-calendar"
+            />
             <FeatureCard
               icon={<PenTool size={48} />}
               title="AI Essay Writing Assistant"
               description="Craft compelling essays with our AI-powered editor and personalized suggestions."
               link="/essay-assistant"
+            />
+            <FeatureCard
+              icon={<FileText size={48} />}
+              title="Recommendation Letters"
+              description="Generate personalized recommendation letter requests for your teachers with AI assistance."
+              link="/recommendation-letters"
             />
             <FeatureCard
               icon={<Lightbulb size={48} />}
@@ -66,7 +79,17 @@ const LandingPage: React.FC = () => {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Ready to Elevate Your College Application?</h2>
-          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">Join thousands of students who have found success with Lomo.</p>
+          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">Join thousands of student who have found success with Lomo.</p>
+          {/* Join Discord Button */}
+            <a 
+              href="https://discord.gg/NRJrJQWB7F" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-full font-semibold text-lg shadow-md hover:bg-blue-700 transition-colors"
+            >
+            <RiDiscordFill size={24} className="mr-2" />
+            Join Discord Server
+          </a>
         </div>
       </section>
     </div>
@@ -82,3 +105,9 @@ const FeatureCard: React.FC<{ icon: React.ReactNode; title: string; description:
 );
 
 export default LandingPage;
+
+
+
+
+
+

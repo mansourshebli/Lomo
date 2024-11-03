@@ -49,3 +49,28 @@ export const generateActivities = async () => {
     return [];
   }
 };
+
+export const generateRecommendationLetter = async (teacherName: string, subject: string, style: string) => {
+  const response = await cohereClient.chat({
+    message: `Generate a recommendation letter request for a teacher with the following details:
+      Teacher Name: ${teacherName}
+      Subject: ${subject}
+      Style: ${style}
+      
+      The letter should be professional, polite, and include:
+      1. A proper greeting
+      2. Context about the student-teacher relationship
+      3. Why this specific teacher was chosen
+      4. Clear request for the recommendation
+      5. Deadline information
+      6. Thank you note
+      7. Professional closing`,
+    model: "command-r-08-2024",
+    preamble: "You are an expert in writing professional emails and recommendation letter requests. Create a well-structured, polite, and effective request that will make the teacher more likely to accept. The tone should match the specified style while maintaining professionalism."
+  });
+
+  return response.text
+    .replace(/[#*`_]/g, '') // Remove markdown characters
+    .replace(/\n+/g, '\n') // Normalize line breaks
+    .trim();
+};
