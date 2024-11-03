@@ -56,9 +56,11 @@ export const generateActivities = async () => {
   }
 };
 
-export const generateRecommendationLetter = async (teacherName: string, subject: string, style: string) => {
+export const generateRecommendationLetter = async (teacherName: string, subject: string, style: string, studentName: string, currentGrade: string) => {
   const response = await cohereClient.chat({
     message: `Generate a recommendation letter request for a teacher with the following details:
+      Your Name: ${studentName}
+      Current Grade: ${currentGrade}
       Teacher Name: ${teacherName}
       Subject: ${subject}
       Style: ${style}
