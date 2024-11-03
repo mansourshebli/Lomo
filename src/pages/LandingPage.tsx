@@ -11,7 +11,7 @@ const LandingPage: React.FC = () => {
       <section className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 dark:from-gray-800 dark:via-gray-900 dark:to-black text-white py-20">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6 leading-tight">Ace Your College Application <br/>with Lomo</h1>
-          <p className="text-xl mb-12 text-blue-100">The Ultimate College Application Assistant for Student-Athletes</p>
+          <p className="text-xl mb-12 text-blue-100">The Ultimate College Application Assistant for students</p>
           
           {/* University Logo Marquee */}
           <div className="relative w-full overflow-hidden py-12 marquee-container">
@@ -79,7 +79,7 @@ const LandingPage: React.FC = () => {
       <section className="py-20 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 bg-clip-text text-transparent">Ready to Elevate Your College Application?</h2>
-          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">Join thousands of student-athletes who have found success with Lomo.</p>
+          <p className="text-xl mb-8 text-gray-600 dark:text-gray-300">Join thousands of student who have found success with Lomo.</p>
           {/* Join Discord Button */}
             <a 
               href="https://discord.gg/NRJrJQWB7F" 
